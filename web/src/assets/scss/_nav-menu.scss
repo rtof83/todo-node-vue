@@ -1,0 +1,40 @@
+.nav-menu {
+//   width: 100vw;
+//   background-color: rgb(255, 255, 255);
+//   z-index: 1;
+//   position: sticky;
+//   top: 0;
+  
+  & ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0.5rem;
+  
+    & li {
+      cursor: pointer;
+    //   display: block;
+    //   color: #000;
+    //   text-decoration: none;
+      font-size: 1.2rem;
+      padding: 0 .5rem;
+    //   border-radius: 0.2rem;
+      font-weight: 400;
+      transition: .3s;
+
+      &:active {
+        position: relative;
+        top: 1px;
+        // text-decoration: underline;
+      }
+  
+      &:hover {
+        background-color: #18215992;
+        color: #fff;
+        border-radius: .3rem;
+        // text-decoration: underline;
+      }
+    }
+  }
+}

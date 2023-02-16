@@ -1,5 +1,6 @@
 /web/node_modules
 /web/dist
+/web/src/assets/css/*.map
 
 /api/node_modules
 
