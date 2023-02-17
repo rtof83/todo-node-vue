@@ -57,6 +57,7 @@
   padding: 0 0.5rem;
   background-color: #414141;
   color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1215686275) 0px 1px 3px, rgba(0, 0, 0, 0.2392156863) 0px 1px 2px;
   transition: 0.2s;
 }
 .container-home__task button:hover {
