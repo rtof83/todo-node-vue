@@ -1,0 +1,21 @@
+{
+  "name": "api-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index.js localhost 3001"
+  },
+  "keywords": [],
+  "author": "Renato Tadeu",
+  "license": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.3",
+    "node": "^17.7.2",
+    "nodemon": "^2.0.13",
+    "sequelize": "^6.25.3"
+  }
+}
