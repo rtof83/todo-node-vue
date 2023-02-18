@@ -8,9 +8,9 @@
 .nav-menu ul li {
   cursor: pointer;
   font-size: 1.2rem;
-  padding: 0 0.5rem;
-  font-weight: 400;
-  transition: 0.3s;
+  padding: 0.5rem 0.8rem;
+  font-weight: 600;
+  transition: 0.2s;
 }
 .nav-menu ul li:active {
   position: relative;
@@ -38,6 +38,7 @@
 }
 .container-home__panel h1 {
   text-shadow: 1px 1px 2px rgba(131, 131, 131, 0.8);
+  font-weight: 600;
 }
 .container-home__task {
   display: flex;
@@ -47,7 +48,7 @@
 }
 .container-home__task input, .container-home__task button {
   border-radius: 0.3rem;
-  padding: 0.3rem;
+  padding: 0.5rem;
 }
 .container-home__task input {
   width: 100%;
