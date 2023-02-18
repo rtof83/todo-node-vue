@@ -3,5 +3,6 @@
 /web/src/assets/css/*.map
 
 /api/node_modules
+api/.env
 
 /files
