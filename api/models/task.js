@@ -20,7 +20,7 @@ const Task = conn.define('task', {
 
 Task.belongsTo(Tag, {
     constraint: true,
-    foreignKey: 'TagId'
+    foreignKey: 'tagId'
 });
 
 module.exports = Task;

@@ -7,6 +7,9 @@ app.use(cors());
 // require('./models/log');
 
 require('./routes/task/getAll');
+require('./routes/task/create');
+require('./routes/task/delete');
+require('./routes/task/update');
 
 // const models = require('./models');
 // const methods = require('./methods');
