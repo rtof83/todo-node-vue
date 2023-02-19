@@ -1,0 +1,30 @@
+.new-task {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1rem 0;
+}
+.new-task input, .new-task button {
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+}
+.new-task input {
+  width: 100%;
+}
+.new-task button {
+  border: none;
+  padding: 0 0.5rem;
+  background-color: #414141;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1215686275) 0px 1px 3px, rgba(0, 0, 0, 0.2392156863) 0px 1px 2px;
+  transition: 0.2s;
+}
+.new-task button:hover {
+  background-color: #5d5d5d;
+}
+.new-task button:active {
+  position: relative;
+  top: 1px;
+}
+
+/*# sourceMappingURL=new-task.css.map */

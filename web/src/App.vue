@@ -1,13 +1,20 @@
 <template>
   <nav>
     <router-link to="/">Minhas Tarefas</router-link> |
-    <router-link to="/about">Configurações</router-link>
+    <router-link to="/config">Configurações</router-link>
   </nav>
   <router-view/>
 </template>
 
 <style>
   @import '@/assets/css/global.css';
+
+  nav {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    padding: 1rem 0;
+  }
 
 /* #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
