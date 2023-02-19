@@ -1,13 +1,16 @@
 const { app } = require('../../database/conn');
 const Task = require('../../models/task');
+const Config = require('../../models/config');
 
 module.exports = app.post('/tasks', async (req, res) => {
   try {
+    const config = await Config.findAll();
+    const dateSize = config.dateSize ? config.dateSize : 3;
+
     const date = new Date();
 
     req.body.tagId = 1;
-    req.body.startDate = `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()}`;
-    req.body.endDate = `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate() + 1}`;
+    req.body.deadline = `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate() + dateSize}`;
     
     await Task.create(req.body);
 

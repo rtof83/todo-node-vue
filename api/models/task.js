@@ -14,8 +14,7 @@ const Task = conn.define('task', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    startDate: Sequelize.DATEONLY,
-    endDate: Sequelize.DATEONLY
+    deadline: Sequelize.DATEONLY
 });
 
 Task.belongsTo(Tag, {

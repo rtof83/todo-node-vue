@@ -3,13 +3,22 @@ const { app } = require('./database/conn');
 const cors = require('cors');
 app.use(cors());
 
-// require('./models/task');
-// require('./models/log');
+// tasks routes
+require('./routes/task/getAllTasks');
+require('./routes/task/createTask');
+require('./routes/task/deleteTask');
+require('./routes/task/updateTask');
 
-require('./routes/task/getAll');
-require('./routes/task/create');
-require('./routes/task/delete');
-require('./routes/task/update');
+// tags routes
+require('./routes/tag/getAllTags');
+
+// config routes
+require('./routes/config/getAllConfigs');
+
+// services
+require('./services/initialConfig')();
+require('./services/initialTags')();
+
 
 // const models = require('./models');
 // const methods = require('./methods');

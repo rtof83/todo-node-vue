@@ -1,17 +1,21 @@
 const Sequelize = require('sequelize');
 const { conn } = require('../database/conn');
 
-const Log = conn.define('log', {
+const Config = conn.define('config', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true
     },
-    name: {
-        type: Sequelize.STRING,
+    pageSize: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    dateSize: {
+        type: Sequelize.INTEGER,
         allowNull: false
     }
 });
 
-module.exports = Log;
+module.exports = Config;

@@ -13,13 +13,11 @@ module.exports = app.get('/tasks', async (req, res) => {
     };
 
     const result = await Task.findAll({
-      // where: {
-      //   tagId: query
-      // },
       where,
 
       attributes: {
-        include: [[Sequelize.literal('tag.name'), 'tagName']],
+        include: [[Sequelize.literal('tag.name'), 'tagName'],
+                  [Sequelize.literal('tag.color'), 'tagColor']],
         },
         include: [{ model: Tag, as: 'tag', attributes: [] }]
     });
