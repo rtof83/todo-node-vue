@@ -8,8 +8,6 @@ require('./routes/task/getAllTasks');
 require('./routes/task/createTask');
 require('./routes/task/deleteTask');
 require('./routes/task/updateTask');
-// testing pagination
-require('./routes/task/getAll');
 
 // tags routes
 require('./routes/tag/getAllTags');
