@@ -1,7 +1,8 @@
 const { app } = require('../../database/conn');
+const checkMinNumber = require('../../middlewares/checkMinNumber');
 const Config = require('../../models/config');
 
-module.exports = app.put('/configs/:id', async (req, res) => {
+module.exports = app.put('/configs/:id', checkMinNumber, async (req, res) => {
   const result = await Config.findByPk(req.params.id);
     
   if (!result)

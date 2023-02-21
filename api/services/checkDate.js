@@ -21,7 +21,6 @@ module.exports = () => {
     };
   };
 
-  schedule.scheduleJob('0 1 * * *',
-//   schedule.scheduleJob('50 * * * * *',
+  schedule.scheduleJob('0 1 * * *', // -> check date every day at 1:00am
     () => { checkDate() });
 };

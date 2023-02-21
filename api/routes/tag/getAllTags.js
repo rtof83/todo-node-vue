@@ -3,7 +3,6 @@ const Tag = require('../../models/tag');
 
 module.exports = app.get('/tags', async (_, res) => {
   try {
-   
     const tags = await Tag.findAll();
 
     if (!tags)

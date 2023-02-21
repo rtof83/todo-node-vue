@@ -5,6 +5,7 @@ app.use(cors());
 
 // tasks routes
 require('./routes/task/getAllTasks');
+require('./routes/task/getTaskById');
 require('./routes/task/createTask');
 require('./routes/task/deleteTask');
 require('./routes/task/updateTask');
