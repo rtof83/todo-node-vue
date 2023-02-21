@@ -10,7 +10,7 @@
 
       <!-- nav bar -->
       <!-- <div v-if="tags.length"> -->
-      <div class="menu-home">
+      <div class="menu">
         <ul ref="menu">
           <li @click="(e) => clickMenu(e, 0)">todos</li>
           <li v-for="menu in tags" :key="menu.id" @click="(e) => clickMenu(e, menu.id)">
@@ -45,7 +45,7 @@
 
             <td>
               <!-- <input @change="(e) => updateTask(item.id, { startDate: e.target.value })" -->
-              <input @change="(e) => updateDate(item.id, e.target.value)"
+              <input @change="(e) => updateDate(item.id, e.target.value, item.tagId)"
                      class="date-row"
                      type="date"
                      :value="item.deadline">
@@ -143,7 +143,7 @@ export default {
       e.target.classList.add(action);
     },
 
-    async newTask() {
+    newTask() {
       if (!this.taskName)
         return alert('Insira uma tarefa');
 
@@ -154,6 +154,8 @@ export default {
         method = 'updateTask';
 
         this.updateMode = 0;
+      } else {
+        this.$refs.menu.children[0].click();
       };
 
       this.$store.dispatch(method, data);
@@ -183,9 +185,12 @@ export default {
       return (deadline - now <= -86400000) ? 'pending' : 'valid';
     },
 
-    updateDate(id, date) {
+    updateDate(id, date, tagId) {
       const data = { id: id, deadline: date };
-      if (this.checkDate(date) === 'pending') data.tagId = 2;
+      if (this.checkDate(date) === 'pending')
+        data.tagId = 2;
+      else if ((this.checkDate(date) === 'valid') && (tagId !== 3))
+        data.tagId = 1;
 
       this.$store.dispatch('updateTask', data);
     },
@@ -210,6 +215,4 @@ export default {
 }
 </script>
 
-<style>
-  @import '@/assets/css/home.css';
-</style>
+<style src="@/assets/scss/home.scss" lang="scss" scoped />

@@ -1,0 +1,52 @@
+@use "button";
+
+$gap: .5rem;
+
+.config {
+  margin-top: 2rem;
+  
+  & hr {
+    margin: 1.5rem 0;
+  }
+
+  & input {
+    border-radius: .2rem;
+    text-align: center;
+  }
+
+  & label {
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+
+  &__tags {
+    display: flex;
+    justify-content: center;
+    padding: .5rem 0;
+    gap: $gap;  
+  }
+
+  &__general, &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+  }
+
+  &__general {
+    & input {
+      margin-left: .5rem;
+      width: 70px;
+    }
+  }
+
+  &__buttons {
+    width: 200px;
+    margin: 0 auto;
+    gap: 1rem;
+
+    & button {
+      padding: .5rem 1.5rem;
+      border-radius: .3rem;
+    }
+  }
+}

@@ -1,12 +1,16 @@
 <template>
-  <nav>
-    <router-link to="/">Minhas Tarefas</router-link> |
-    <router-link to="/config">Configurações</router-link>
+  <nav class="menu">
+    <!-- <router-link to="/">Minhas Tarefas</router-link> |
+    <router-link to="/config">Configurações</router-link> -->
+    <ul>
+      <li><router-link to="/">Minhas Tarefas</router-link></li>
+      <li><router-link to="/config">Configurações</router-link></li>
+    </ul>
   </nav>
   <router-view/>
 </template>
 
-<style>
+<!-- <style>
   @import '@/assets/css/global.css';
 
   nav {
@@ -36,4 +40,6 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 } */
-</style>
+</style> -->
+
+<style src="@/assets/scss/global.scss" lang="scss" />

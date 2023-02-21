@@ -17,6 +17,4 @@
   }
 </script>
 
-<style>
-  @import '@/assets/css/container-panel.css';
-</style>
+<style src="@/assets/scss/container-panel.scss" lang="scss" scoped />
