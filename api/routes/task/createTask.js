@@ -4,8 +4,9 @@ const Config = require('../../models/config');
 
 module.exports = app.post('/tasks', async (req, res) => {
   try {
-    const config = await Config.findAll();
-    const dateSize = config.dateSize ? config.dateSize : 3;
+    const config = await Config.findAll({ where: { id: 1 } });
+
+    const dateSize = config[0].dateSize ? config[0].dateSize : 3;
 
     const date = new Date();
 

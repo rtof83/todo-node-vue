@@ -1,4 +1,5 @@
-const Config = require('../models/Config.js');
+const Config = require('../models/config');
+const defaultValues = require('./default');
 
 module.exports = async () => {
   try {
@@ -6,9 +7,11 @@ module.exports = async () => {
     const config = await Config.findAll();
 
     if (!config.length) {
-      await Config.create({ pageSize: process.env.PAGE_SIZE,
-                            dateSize: process.env.DATE_SIZE,
-                         });
+      // await Config.create({ pageSize: process.env.PAGE_SIZE,
+      //                       dateSize: process.env.DATE_SIZE,
+      //                    });
+
+      await Config.create(defaultValues.config);
 
       console.log('initial config created...');
     };

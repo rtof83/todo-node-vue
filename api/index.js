@@ -8,16 +8,23 @@ require('./routes/task/getAllTasks');
 require('./routes/task/createTask');
 require('./routes/task/deleteTask');
 require('./routes/task/updateTask');
+// testing pagination
+require('./routes/task/getAll');
 
 // tags routes
 require('./routes/tag/getAllTags');
+require('./routes/tag/updateTag');
 
 // config routes
 require('./routes/config/getAllConfigs');
+require('./routes/config/updateConfig');
+require('./routes/config/reset');
 
 // services
 require('./services/initialConfig')();
 require('./services/initialTags')();
+require('./services/checkDate')();
+
 
 
 // const models = require('./models');
