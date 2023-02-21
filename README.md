@@ -12,7 +12,6 @@
 - [Estrutura da Base de Dados](#estrutura-da-base-de-dados)
 - [Implementações API](#implementações-api)
 - [Exemplos Inserção / Atualização](#exemplos-de-inserção--atualização)
-- [Estrutura Grupo de Acesso](#estrutura-grupo-de-acesso)
 - [Implementações WEB](#implementações-web)
 
 &nbsp;
@@ -57,12 +56,13 @@
 - porta padrão WEB: 8080;
 
 - ### a aplicação pode ser acessada através dos links:
-  - WEB (armazenado em instância Amazon S3)
+  - WEB (armazenado em instância Amazon S3):
     - http://to-do-list-node-vue.s3-website-us-east-1.amazonaws.com
-  - API (instanciada em EC2 AWS)
+  - API (instanciada em EC2 AWS):
     - http://34.235.89.154:3005
+  - Base de Dados instanciada em RDS:
+    - database.c4gffxjofhme.us-east-1.rds.amazonaws.com:3306;
 
-<!-- --- -->
 &nbsp;
 
 ## Configurações
