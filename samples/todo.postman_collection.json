@@ -34,7 +34,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"pageSize\": 10,\r\n    \"dateSize\": 2\r\n}",
+							"raw": "{\r\n    \"pageSize\": 5,\r\n    \"dateSize\": 4\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -104,7 +104,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"inserindo tarefa teste\",\r\n    \"startDate\": \"2023-02-17\",\r\n    \"endDate\": \"2023-02-18\"\r\n}",
+							"raw": "{\r\n    \"name\": \"inserindo tarefa teste\",\r\n    \"deadline\": \"2023-02-17\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -278,6 +278,25 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get task by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}:{{PORT}}/tasks/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"port": "{{PORT}}",
+							"path": [
+								"tasks",
+								"1"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -309,7 +328,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"em progresso 2\"\r\n}",
+							"raw": "{\r\n    \"name\": \"tag2\",\r\n    \"color\": \"#585422\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
