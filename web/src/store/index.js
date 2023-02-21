@@ -6,8 +6,10 @@ export default createStore({
     tags: [],
     tasks: [],
     configs: [],
-    menu: { curr: 0 },
-    loading: { message: '' }
+    services: {
+      menu: 0,
+      loading: false
+    }
   },
 
   getters: {
@@ -35,6 +37,8 @@ export default createStore({
     },
 
     async getTasks({ commit, state }, search) {
+      state.services.loading = true;
+
       let page = 1;
       let taskName = '';
 
@@ -43,16 +47,17 @@ export default createStore({
         if (search.taskName) taskName = `&name=${search.taskName}`;
       };
       
-      const { data } = await api.get(`tasks?page=${page}${taskName}${!state.menu.curr ? '' : '&tag=' + state.menu.curr}`);
-      if (!data.length) state.loading.message = 'Nenhum registro encontrado'
+      const { data } = await api.get(`tasks?page=${page}${taskName}${!state.services.menu ? '' : '&tag=' + state.services.menu}`);
       commit('setTasks', data);
+
+      state.services.loading = false;
     },
     // ======================================
     
 
     // ================ POST ================
     async addTask({ dispatch }, task) {
-        await api.post('tasks', task)
+      await api.post('tasks', task)
         .then(() => dispatch('getTasks'))
         .catch(error => console.log(error));
     },
@@ -70,9 +75,9 @@ export default createStore({
 
     // ================ PUT ================
     async updateTask({ dispatch }, task) {
-        await api.put(`tasks/${task.id}`, task)
-          .then(() => dispatch('getTasks', task.currTag))
-          .catch(error => console.log(error));
+      await api.put(`tasks/${task.id}`, task)
+        .then(() => dispatch('getTasks', task.currTag))
+        .catch(error => console.log(error));
     },
 
     async updateTag({ dispatch }, tag) {

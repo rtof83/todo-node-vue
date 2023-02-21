@@ -1,9 +1,9 @@
 <template>
   <ContainerPanel title="Minhas Tarefas">
 
-      <!-- div home task -->
+      <!-- home task -->
       <div class="new-task">
-        <input v-model="taskName" @keydown.enter="newTask" type="text" placeholder="Nova tarefa...">
+        <input ref="taskName" v-model="taskName" @keydown.enter="newTask" type="text" placeholder="Nova tarefa...">
         <button @click="newTask">{{ updateMode ? 'atualizar' : 'adicionar' }}</button>
         <button v-if="updateMode" @click="cancelUpdate">cancelar</button>
       </div>
@@ -15,16 +15,13 @@
           <li v-for="menu in tags" :key="menu.id" @click="(e) => clickMenu(e, menu.id)">
             {{ menu.name }}
           </li>
-          <!-- <li v-for="menu in listMenu" :key="menu.id" @click="(e) => clickMenu(e, menu.id)">
-            {{ menu.name }}
-          </li> -->
         </ul>
       </div>
 
       <Search></Search>
 
-      <!-- list em forma de tabela -->
-      <div v-if="tasks.length">
+      <!-- tasks list -->
+      <div v-if="tasks.length && !services.loading">
         <table class="table table-hover align-middle">
           <thead>
             <tr>
@@ -81,8 +78,8 @@
       </table>
       </div>
 
-      <!-- <div v-else class="loading">carregando...</div> -->
-      <div v-else class="loading">{{ loading.message }}</div>
+      <div v-else-if="services.loading" class="loading">aguarde...</div>
+      <div v-else-if="!tasks.length" class="loading">Nenhum registro encontrado</div>
 
       <Pagination></Pagination>
 
@@ -120,12 +117,8 @@ export default {
       return this.$store.state.tasks;
     },
 
-    loading() {
-      return this.$store.state.loading;
-    },
-
-    menu() {
-      return this.$store.state.menu;
+    services() {
+      return this.$store.state.services;
     }
   },
 
@@ -138,7 +131,7 @@ export default {
 
       e.target.classList.add('activeItem');
 
-      this.menu.curr = menuId;
+      this.services.menu = menuId;
       this.$store.dispatch('getTasks');
     },
 
@@ -202,6 +195,7 @@ export default {
     updateTaskName(id, name) {
       this.updateMode = id;
       this.taskName = name;
+      this.$refs.taskName.focus();
     },
 
     cancelUpdate() {

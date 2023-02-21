@@ -2,7 +2,7 @@
   <div class="container-main">
     <div class="container-main__panel">
       <h1>{{ title }}</h1>
-        <slot />
+        <slot></slot>
     </div>
   </div>
 </template>

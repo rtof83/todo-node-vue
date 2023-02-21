@@ -1,10 +1,4 @@
-.menu {
-//   width: 100vw;
-//   background-color: rgb(255, 255, 255);
-//   z-index: 1;
-//   position: sticky;
-//   top: 0;
-  
+.menu { 
   & ul {
     display: flex;
     justify-content: center;
@@ -14,27 +8,21 @@
   
     & li {
       cursor: pointer;
-    //   display: block;
-    //   color: #000;
-    //   text-decoration: none;
       font-size: 1.2rem;
       padding: .5rem .8rem;
       text-transform: uppercase;
-    //   border-radius: 0.2rem;
       font-weight: 600;
       transition: .2s;
 
       &:active {
         position: relative;
         top: 1px;
-        // text-decoration: underline;
       }
   
       &:hover {
         background-color: #18215992;
         color: #fff;
         border-radius: .3rem;
-        // text-decoration: underline;
       }
     }
   }

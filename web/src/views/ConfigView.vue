@@ -31,14 +31,6 @@
         <button @click="save">Salvar</button>
         <button @click="reset">Configuração Padrão</button>
       </div>
-
-
-      
-      <div>
-        <!-- <button variant="success" @click="makeToast('success')" class="mb-2 b button">Success</button> -->
-      </div>
-
-
     </div>
 
   </ContainerPanel>
@@ -66,14 +58,6 @@
     },
 
     methods: {
-      // makeToast(variant = null) {
-      //   this.$bvToast.toast('Toast body content', {
-      //     title: `Variant ${variant || 'default'}`,
-      //     variant: variant,
-      //     solid: true
-      //   })
-      // }
-
       reset() {
         if (confirm('As configurações serão reinicializadas. Deseja Continuar?')) {
           this.$store.dispatch('resetConfigs');
