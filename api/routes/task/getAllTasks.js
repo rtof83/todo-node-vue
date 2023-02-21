@@ -13,9 +13,7 @@ module.exports = app.get('/tasks', async (req, res) => {
       let search = {};
 
       if (req.query.name) {
-        const Sequelize = require('sequelize');
         const Op = Sequelize.Op;
-
         search.name = { [Op.substring]: req.query.name };
       };
 

@@ -4,12 +4,6 @@ const Config = require('../../models/config');
 const defaultValues = require('../../services/default');
 
 module.exports = app.post('/configs/reset', async (_, res) => {
-
-  console.log('aqui');
-  
-  // if (!result)
-  //   return res.status(422).json({ message: 'Record not found!' });
-
   try {
     const config = await Config.findAll();
     const tags = await Tag.findAll();
