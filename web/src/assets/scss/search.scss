@@ -1,0 +1,14 @@
+.search {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 1rem;
+  gap: .5rem;
+
+  & input, button {
+    border-radius: .3rem;
+  }
+
+  & input {
+    padding: .2rem .5rem;
+  }
+}

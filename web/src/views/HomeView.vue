@@ -9,7 +9,6 @@
       </div>
 
       <!-- nav bar -->
-      <!-- <div v-if="tags.length"> -->
       <div class="menu">
         <ul ref="menu">
           <li @click="(e) => clickMenu(e, 0)">todos</li>
@@ -21,7 +20,8 @@
           </li> -->
         </ul>
       </div>
-      <!-- </div> -->
+
+      <Search></Search>
 
       <!-- list em forma de tabela -->
       <div v-if="tasks.length">
@@ -31,7 +31,6 @@
               <th scope="col">id</th>
               <th scope="col">Tarefa</th>
               <th scope="col">Status</th>
-              <!-- <th scope="col">Início</th> -->
               <th scope="col">Prazo</th>
               <th scope="col">Ações</th>
             </tr>
@@ -39,24 +38,19 @@
           <tbody>
 
           <tr v-for="item in tasks" :key="item.id">
+
+            <template v-if="!item.page">
+
             <th scope="row">{{ item.id }}</th>
             <td>{{ item.name }}</td>
             <td><div class="status" :style="{'background-color': item.tagColor}" :class="`status${item.tagId}`">{{ item.tagName }}</div></td>
 
             <td>
-              <!-- <input @change="(e) => updateTask(item.id, { startDate: e.target.value })" -->
               <input @change="(e) => updateDate(item.id, e.target.value, item.tagId)"
                      class="date-row"
                      type="date"
                      :value="item.deadline">
             </td>
-
-            <!-- <td>
-              <input @change="(e) => checkDate(item.id, item.startDate, e.target.value)"
-                      class="date-row"
-                      type="date"
-                      :value="item.endDate">
-            </td> -->
             
             <td>
               <div class="actions">
@@ -78,6 +72,9 @@
                 </div>
               </div>
             </td>
+
+            </template>
+
           </tr>
 
         </tbody>
@@ -86,18 +83,25 @@
 
       <!-- <div v-else class="loading">carregando...</div> -->
       <div v-else class="loading">{{ loading.message }}</div>
+
+      <Pagination></Pagination>
+
     </ContainerPanel>
 </template>
 
 <script>
 import ContainerPanel from '@/components/ContainerPanel.vue';
+import Pagination from '@/components/Pagination.vue';
+import Search from '@/components/Search.vue';
 
 export default {
   name: 'HomeView',
 
   components: {
-    ContainerPanel
-  },
+    ContainerPanel,
+    Pagination,
+    Search
+},
 
   data() {
     return {

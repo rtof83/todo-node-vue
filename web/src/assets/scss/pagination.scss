@@ -1,0 +1,15 @@
+@use "button";
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: .2rem;
+
+  & button {
+    padding: .4rem 1.2rem;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    margin: 0 1rem;
+  }
+}

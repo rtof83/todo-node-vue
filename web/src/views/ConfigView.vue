@@ -84,6 +84,7 @@
       save() {
         this.tags.map(item => {
           this.$store.dispatch('updateTag', item);
+          router.push('/');
         })
 
         this.configs.map(item => {

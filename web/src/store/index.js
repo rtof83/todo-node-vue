@@ -34,8 +34,16 @@ export default createStore({
       commit('setConfigs', data);
     },
 
-    async getTasks({ commit, state }) {
-      const { data } = await api.get(`tasks${!state.menu.curr ? '' : '?tag=' + state.menu.curr}`);
+    async getTasks({ commit, state }, search) {
+      let page = 1;
+      let taskName = '';
+
+      if (search) {
+        if (search.page) page = search.page;
+        if (search.taskName) taskName = `&name=${search.taskName}`;
+      };
+      
+      const { data } = await api.get(`tasks?page=${page}${taskName}${!state.menu.curr ? '' : '&tag=' + state.menu.curr}`);
       if (!data.length) state.loading.message = 'Nenhum registro encontrado'
       commit('setTasks', data);
     },
