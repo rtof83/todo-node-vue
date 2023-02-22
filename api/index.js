@@ -3,52 +3,28 @@ const { app } = require('./database/conn');
 const cors = require('cors');
 app.use(cors());
 
+const Task = require('./models/task');
+const Tag = require('./models/tag');
+const Config = require('./models/config');
+
 // tasks routes
 require('./routes/task/getAllTasks');
 require('./routes/task/getTaskById');
 require('./routes/task/createTask');
 require('./routes/task/deleteTask');
-require('./routes/task/updateTask');
+require('./commonMethods/update')('/tasks', Task);
+
 
 // tags routes
-require('./routes/tag/getAllTags');
-require('./routes/tag/updateTag');
+require('./commonMethods/getAll')('/tags', Tag);
+require('./commonMethods/update')('/tags', Tag);
 
 // config routes
-require('./routes/config/getAllConfigs');
-require('./routes/config/updateConfig');
+require('./commonMethods/getAll')('/configs', Config);
+require('./commonMethods/update')('/configs', Config);
 require('./routes/config/reset');
 
 // services
 require('./services/initialConfig')();
 require('./services/initialTags')();
 require('./services/checkDate')();
-
-
-
-// const models = require('./models');
-// const methods = require('./methods');
-// const routes = [ '/cars', '/stores', '/brands', '/users' ];
-
-// // mount standard routes
-// for (let i = 0; i < routes.length; i++) {
-//   // for each method
-//   for (let j = 0; j < methods.length; j++) {
-//     methods[j](routes[i], models[i]);
-//   };
-// };
-
-
-// // custom routes
-
-// // login to sign token
-// require('./routes/checkUserRoute')('/login');
-
-// // validate access
-// require('./routes/checkValidate')('/validate');
-
-// // verify if any admin exists on database
-// require('./middlewares/checkAdminExists')();
-
-// // custom get query route
-// require('./routes/searchByQuery');
