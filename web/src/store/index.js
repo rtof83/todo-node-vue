@@ -56,9 +56,11 @@ export default createStore({
     
 
     // ================ POST ================
-    async addTask({ dispatch }, task) {
+    async addTask({ dispatch, state }, task) {
       await api.post('tasks', task)
-        .then(() => dispatch('getTasks'))
+        .then(() => {
+          dispatch('getTasks', { page: state.tasks.at(-1).from })
+        })
         .catch(error => console.log(error));
     },
 
@@ -74,9 +76,9 @@ export default createStore({
 
 
     // ================ PUT ================
-    async updateTask({ dispatch }, task) {
+    async updateTask({ dispatch, state }, task) {
       await api.put(`tasks/${task.id}`, task)
-        .then(() => dispatch('getTasks', task.currTag))
+        .then(() => dispatch('getTasks', { page: state.tasks.at(-1).page }))
         .catch(error => console.log(error));
     },
 
@@ -95,9 +97,12 @@ export default createStore({
 
 
     // ============== DELETE ==============
-    async deleteTask({ dispatch }, id) {
+    async deleteTask({ dispatch, state }, id) {
       await api.delete(`tasks/${id}`)
-        .then(() => dispatch('getTasks'))
+        .then(() => {
+          const currPage = state.tasks.length > 2 ? state.tasks.at(-1).page : state.tasks.at(-2).page;
+          dispatch('getTasks', { page: currPage });
+        })
         .catch(error => console.log(error));
     }
     // ====================================
