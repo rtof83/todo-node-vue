@@ -29,8 +29,8 @@
 | `Ferramentas`     | Visual Studio Code 1.75.1        |
 |                   | Console de Gerenciamento da AWS  |
 |                   | HeidiSQL 12.3.0                  |
+|                   | Postman 10.11.1                  |
 
-<!-- --- -->
 &nbsp;
 
 ## Instalação e Inicialização:
@@ -58,8 +58,10 @@
 - ### a aplicação pode ser acessada através dos links:
   - WEB (armazenado em instância Amazon S3):
     - http://to-do-list-node-vue.s3-website-us-east-1.amazonaws.com
+
   - API (instanciada em EC2 AWS):
     - http://34.235.89.154:3005
+
   - Base de Dados instanciada em RDS:
     - database.c4gffxjofhme.us-east-1.rds.amazonaws.com:3306;
 
@@ -89,8 +91,8 @@
   
   ### initial config to database (configuração que será exportada para a tabela "config")
 
-  PAGE_SIZE = 10
-  DATE_SIZE = 3
+  PAGE_SIZE = 10        | --> número de registros por página
+  DATE_SIZE = 3         | --> número de dias somado à tarefa após inserção
 
 - [Dockerfile (api):](https://github.com/rtof83/todo-node-vue/blob/main/api/Dockerfile)
 
@@ -123,7 +125,7 @@
 
   COPY . .
 
-  EXPOSE 3000
+  EXPOSE 8080
 
   CMD ["npm", "run", "serve"]
   ```
