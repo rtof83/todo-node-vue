@@ -8,10 +8,11 @@ module.exports = app.post('/tasks', async (req, res) => {
 
     const dateSize = config[0].dateSize ? config[0].dateSize : 3;
 
-    const date = new Date();
+    // current date + (1 day in milliseconds x dateSize)
+    const date = new Date(Date.now() + (86400000 * dateSize));
 
     req.body.tagId = 1;
-    req.body.deadline = `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate() + dateSize}`;
+    req.body.deadline = `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()}`;
     
     await Task.create(req.body);
 
