@@ -53,7 +53,7 @@
               <div class="actions">
                 <div class="actions__item bi"
                     :class="(item.tagId === 1 || item.tagId === 2) ? 'bi-check-circle' : 'bi-check-circle-fill'"
-                     @click="finishTask(item.id, item.tagId, item.deadline)">
+                    @click="finishTask(item.id, item.tagId, item.deadline)">
                 </div>
 
                 <div class="actions__item bi bi-pencil-fill"
@@ -98,7 +98,7 @@ export default {
     ContainerPanel,
     Pagination,
     Search
-},
+  },
 
   data() {
     return {
@@ -110,11 +110,11 @@ export default {
 
   computed: {
     tags() {
-      return this.$store.state.tags;
+      return this.$store.state.tagsModule.tags;
     },
 
     tasks() {
-      return this.$store.state.tasks;
+      return this.$store.state.tasksModule.tasks;
     },
 
     services() {
@@ -132,7 +132,7 @@ export default {
       e.target.classList.add('activeItem');
 
       this.services.menu = menuId;
-      this.$store.dispatch('getTasks');
+      this.$store.dispatch('tasksModule/getTasks');
     },
 
     hovering(e, action) {
@@ -155,12 +155,12 @@ export default {
         this.$refs.menu.children[0].click();
       };
 
-      this.$store.dispatch(method, data);
+      this.$store.dispatch(`tasksModule/${method}`, data);
       this.taskName = '';
     },
 
     deleteTask(id) {
-      this.$store.dispatch('deleteTask', id);
+      this.$store.dispatch('tasksModule/deleteTask', id);
     },
 
     finishTask(id, tagId, date) {
@@ -172,7 +172,7 @@ export default {
       else if (tagId === 3)
         newTag = 1;
 
-      this.$store.dispatch('updateTask', { id: id, tagId: newTag });
+      this.$store.dispatch('tasksModule/updateTask', { id: id, tagId: newTag });
     },
 
     checkDate(date) {
@@ -189,7 +189,7 @@ export default {
       else if ((this.checkDate(date) === 'valid') && (tagId !== 3))
         data.tagId = 1;
 
-      this.$store.dispatch('updateTask', data);
+      this.$store.dispatch('tasksModule/updateTask', data);
     },
 
     updateTaskName(id, name) {
@@ -205,8 +205,8 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch('getTags');
-    this.$store.dispatch('getTasks');
+    this.$store.dispatch('tagsModule/getTags');
+    this.$store.dispatch('tasksModule/getTasks');
 
     this.$refs.menu.children[0].click();
   }

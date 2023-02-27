@@ -17,13 +17,13 @@
 
     computed: {
       tasks() {
-        return this.$store.state.tasks
+        return this.$store.state.tasksModule.tasks
       }
     },
 
     methods: {
       search() {
-        this.$store.dispatch('getTasks', { taskName: this.searchName });
+        this.$store.dispatch('tasksModule/getTasks', { taskName: this.searchName });
         this.searchName = '';
       }
     }

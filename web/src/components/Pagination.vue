@@ -14,16 +14,16 @@
 
     computed: {
       tasks() {
-        return this.$store.state.tasks
+        return this.$store.state.tasksModule.tasks
       }
     },
 
     methods: {
       countPage(action, page, from) {
         if (action === 'decrease' && page > 1)
-          this.$store.dispatch('getTasks', { page: page - 1 });
+          this.$store.dispatch('tasksModule/getTasks', { page: page - 1 });
         else if (action === 'increase' && page < from)
-          this.$store.dispatch('getTasks', { page: page + 1 });
+          this.$store.dispatch('tasksModule/getTasks', { page: page + 1 });
       }
     }
   }

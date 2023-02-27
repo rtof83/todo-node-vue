@@ -49,37 +49,37 @@
 
     computed: {
       tags() {
-        return this.$store.state.tags;
+        return this.$store.state.tagsModule.tags;
       },
       
       configs() {
-        return this.$store.state.configs;
+        return this.$store.state.configsModule.configs;
       }
     },
 
     methods: {
       reset() {
         if (confirm('As configurações serão reinicializadas. Deseja Continuar?')) {
-          this.$store.dispatch('resetConfigs');
+          this.$store.dispatch('configsModule/resetConfigs');
           router.push('/');
         }
       },
 
       save() {
         this.tags.map(item => {
-          this.$store.dispatch('updateTag', item);
+          this.$store.dispatch('tagsModule/updateTag', item);
           router.push('/');
         })
 
         this.configs.map(item => {
-          this.$store.dispatch('updateConfig', item);
+          this.$store.dispatch('configsModule/updateConfig', item);
         })
       }
     },
 
     mounted() {
-      this.$store.dispatch('getTags');
-      this.$store.dispatch('getConfigs');
+      this.$store.dispatch('tagsModule/getTags');
+      this.$store.dispatch('configsModule/getConfigs');
     }
   }
 </script>
