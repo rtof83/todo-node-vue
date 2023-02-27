@@ -14,7 +14,6 @@ require('./routes/task/createTask');
 require('./routes/task/deleteTask');
 require('./commonMethods/update')('/tasks', Task);
 
-
 // tags routes
 require('./commonMethods/getAll')('/tags', Tag);
 require('./commonMethods/update')('/tags', Tag);
