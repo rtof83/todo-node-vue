@@ -12,15 +12,15 @@ require('./routes/task/getAllTasks');
 require('./routes/task/getTaskById');
 require('./routes/task/createTask');
 require('./routes/task/deleteTask');
-require('./commonMethods/update')('/tasks', Task);
+require('./common/update')('/tasks', Task);
 
 // tags routes
-require('./commonMethods/getAll')('/tags', Tag);
-require('./commonMethods/update')('/tags', Tag);
+require('./common/getAll')('/tags', Tag);
+require('./common/update')('/tags', Tag);
 
 // config routes
-require('./commonMethods/getAll')('/configs', Config);
-require('./commonMethods/update')('/configs', Config);
+require('./common/getAll')('/configs', Config);
+require('./common/update')('/configs', Config);
 require('./routes/config/reset');
 
 // services
