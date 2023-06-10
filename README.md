@@ -60,7 +60,7 @@
     - http://to-do-list-node-vue.s3-website-us-east-1.amazonaws.com
 
   - API (instanciada em EC2 AWS):
-    - http://34.235.89.154:3005
+    - http://3.92.70.204:3005
 
   - Base de Dados instanciada em RDS:
     - database.c4gffxjofhme.us-east-1.rds.amazonaws.com:3306;
