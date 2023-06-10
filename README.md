@@ -20,7 +20,7 @@
 
 | Recursos          |                                  |
 | ----------------- | -------------------------------- |
-| `API`             | Node                             |
+| `API`             | Node 17                          |
 | `WEB`             | Vue 3                            |
 | `Estilização`     | Sass                             |
 | `Base de Dados`   | MySQL                            |
