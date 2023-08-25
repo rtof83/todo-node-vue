@@ -57,13 +57,13 @@
 
 - ### a aplicação pode ser acessada através dos links:
   - WEB (armazenado em instância Amazon S3):
-    - http://to-do-list-node-vue.s3-website-us-east-1.amazonaws.com
+    - http://to-do-list-node-mysql-vue.s3-website-us-east-1.amazonaws.com
 
   - API (instanciada em EC2 AWS):
-    - http://3.92.70.204:3005
+    - http://3.89.158.18:3002
 
   - Base de Dados instanciada em RDS:
-    - database.c4gffxjofhme.us-east-1.rds.amazonaws.com:3306;
+    - database.cwypxob1ifsj.us-east-1.rds.amazonaws.com:3306;
 
 &nbsp;
 
